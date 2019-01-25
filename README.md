@@ -6,6 +6,26 @@ Preflin is a wrapper over the SharedPreference class in Android. It supports sto
 How to Use
 -------
 
+
+#### Gradle Configuration
+
+Add jitpack.io to your root gradle file (project level) :
+```gradle
+allprojects {
+    	 repositories {
+  		         ...
+  		         maven { url 'https://jitpack.io' }
+  	     }
+ }
+```
+
+Add the dependency in your app build.gradle
+```gradle
+dependencies {
+    implementation 'com.github.Samani:Preflin:v1.0.0'
+}
+```
+
 #### Usage
 
 First initialize the Preflin library in your Application class.
