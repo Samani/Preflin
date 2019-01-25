@@ -88,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
                 Preflin.from(SP_SCORES).putDoubleList(USER1, Arrays.asList(3.3, 4.4, 5.5));
             }
         }, 1000);
+
+        //Check Key exists or not
+        Log.d(TAG, "isExist BOOK1=" + Preflin.isKeyExists(BOOK1));
+
+        //Remove element by Key
+        Log.d(TAG, "delete BOOK1=" + Preflin.deleteValue(BOOK1));
     }
 
     @Override
