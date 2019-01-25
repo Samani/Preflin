@@ -1,7 +1,15 @@
+[![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
 # Preflin
 
 Preflin is a wrapper over the SharedPreference class in Android. It supports storing objects and list objects other than the standard primitives while decreasing the boiler plate code. It also enables listening for changes on specific keys on a SharedPreference with RxJava support.
+
+## Advantages
+
+* Store all primitives include `double`, `float`, `string` and `integer`
+* Store complex data objects and list objects
+* Support RxJava change listener
+* Support Jackson for serialize and deserialize objects
 
 How to Use
 -------
@@ -12,10 +20,10 @@ How to Use
 Add jitpack.io to your root gradle file (project level) :
 ```gradle
 allprojects {
-    	 repositories {
-  		         ...
-  		         maven { url 'https://jitpack.io' }
-  	     }
+  		repositories {
+  			...
+  			maven { url 'https://jitpack.io' }
+  		}
  }
 ```
 
@@ -61,6 +69,12 @@ public class MainActivity extends Activity {
         Preflin.from("Scores").putIntList("level_1", [60, 20, 80, 25, 30]);
 
         List<Integer> scores = Preflin.from("Scores").getIntList("level_1");
+        
+        //Check Key exists or not
+        boolean isExists = Preflin.isKeyExists("book");
+        
+        //Remove element by Key
+        Preflin.deleteValue("book");
     }
 }
 ```
@@ -88,6 +102,13 @@ Preflin.from("scores").listenOn("user1").subscribe(new Action1<String>() {
 Do note that these subscriptions are standard RxJava subscriptions, hence they need to be unsubscribed, failing which will lead to leaking of subscriptions
 
 Create Setter And getter and constructor for jackson
+
+## Roadmap
+
+1. Gson support
+2. Encryption support
+3. Multi module support (core, jackson, gson)
+
 
 License
 -------
