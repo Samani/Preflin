@@ -1,7 +1,6 @@
 package com.rsamani.preflin.demo;
 
 import com.rsamani.preflin.Preflin;
-import com.rsamani.preflin.serializer.GsonSerializer;
 
 /**
  * Created by rasool on 1/24/2019.
@@ -16,6 +15,9 @@ public class Application extends android.app.Application {
 
         // Preflin With Gson Serializer
 //        Preflin.init(this, new GsonSerializer());
+
+        // Preflin With Jackson Serializer
+//        Preflin.init(this, new JacksonSerializer());
     }
 
 }
