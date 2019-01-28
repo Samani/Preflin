@@ -30,7 +30,9 @@ allprojects {
 Add the dependency in your app build.gradle
 ```gradle
 dependencies {
-    implementation 'com.github.Samani:Preflin:v1.0.0'
+    implementation 'com.github.samani:Preflin:v1.1.0'
+    implementation 'com.github.samani:Preflin-gson:v1.1.0' // Serialize object with Gson
+    implementation 'com.github.samani:Preflin-jackson:v1.1.0'  // Serialize object with Jackson
 }
 ```
 
@@ -44,6 +46,10 @@ public class Application extends Application {
     public void onCreate() {
         super.onCreate();
         Preflin.init(this);
+        // Preflin With Gson Serializer
+        Preflin.init(this, new GsonSerializer());
+        // Preflin With Jackson Serializer
+        Preflin.init(this, new JacksonSerializer());
     }
 }
 ```
@@ -75,6 +81,9 @@ public class MainActivity extends Activity {
         
         //Remove element by Key
         Preflin.deleteValue("book");
+        
+        //Clear session
+        Preflin.clearSession();
     }
 }
 ```
@@ -105,10 +114,9 @@ Create Setter And getter and constructor for jackson
 
 ## Roadmap
 
-1. Gson support
+1. ~~Gson support~~
 2. Encryption support
-3. Multi module support (core, jackson, gson)
-
+3. ~~Multi module support (core, jackson, gson)~~ Publish on jitpack
 
 License
 -------
