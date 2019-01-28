@@ -1,1 +1,1 @@
-include ':app', ':preflin', ':preflin-gson'
+include ':app', ':preflin', ':preflin-gson', ':preflin-jackson'

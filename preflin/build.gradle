@@ -29,6 +29,4 @@ dependencies {
 
     implementation "io.reactivex.rxjava2:rxandroid:${RXANDROID_VERSION}"
     implementation "io.reactivex.rxjava2:rxjava:${RXJAVA_VERSION}"
-
-    implementation "com.fasterxml.jackson.core:jackson-databind:${JACKSON_VERSION}"
 }
