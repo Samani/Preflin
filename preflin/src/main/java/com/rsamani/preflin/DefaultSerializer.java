@@ -11,9 +11,10 @@ import java.util.List;
 /**
  * Created by Rasoul Samani on 1/24/2019.
  */
-public class Serialize {
+public class DefaultSerializer implements Serializer {
 
-    public static String toString(Object o) {
+    @Override
+    public String toString(Object o) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
@@ -24,8 +25,8 @@ public class Serialize {
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> T objectFromString(String s, Class<T> tClass) {
+    @Override
+    public <T> T objectFromString(String s, Class<T> tClass) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(s, tClass);
@@ -35,15 +36,16 @@ public class Serialize {
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> List<T> listOjectFromStddring(String s, Class<T> tClass) {
+    @Override
+    public <T> List<T> listObjectFromString(String s, Class<T> tClass) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, tClass);
+            CollectionType listType = mapper.getTypeFactory().constructCollectionType(List.class, tClass);
             return mapper.readValue(s, listType);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
+
 }

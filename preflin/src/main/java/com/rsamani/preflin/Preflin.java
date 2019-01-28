@@ -19,24 +19,29 @@ public class Preflin {
     static final int APPLY_BY_DEFAULT = 1;
 
     private static Context mContext = null;
+    private static Serializer mSerializer = null;
     static int mDefaultCommitBehavior;
 
     private static HashMap<String, PrefInternal> prefHashMap;
 
-    public static void init(Context ctx, int defaultCommitBehavior) {
+    public static void init(Context ctx, int defaultCommitBehavior, Serializer serializer) {
         if (ctx == null) {
             throw new NullPointerException("Preflin.init called will null context");
         }
-
+        mSerializer = serializer;
         mContext = ctx.getApplicationContext();
         prefHashMap = new HashMap<>();
-        prefHashMap.put(DEFAULT, new PrefInternal(PreferenceManager.getDefaultSharedPreferences(mContext)));
+        prefHashMap.put(DEFAULT, new PrefInternal(PreferenceManager.getDefaultSharedPreferences(mContext), serializer));
 
         mDefaultCommitBehavior = defaultCommitBehavior;
     }
 
+    public static void init(Context ctx, Serializer serializer) {
+        init(ctx, COMMIT_BY_DEFAULT, serializer);
+    }
+
     public static void init(Context ctx) {
-        init(ctx, COMMIT_BY_DEFAULT);
+        init(ctx, COMMIT_BY_DEFAULT, new DefaultSerializer());
     }
 
     public static void deInit() {
@@ -63,7 +68,7 @@ public class Preflin {
         if (prefHashMap.containsKey(name)) {
             prefInternal = prefHashMap.get(name);
         } else {
-            prefInternal = new PrefInternal(mContext.getSharedPreferences(name, mode));
+            prefInternal = new PrefInternal(mContext.getSharedPreferences(name, mode), mSerializer);
             prefHashMap.put(name, prefInternal);
         }
         return prefInternal;
