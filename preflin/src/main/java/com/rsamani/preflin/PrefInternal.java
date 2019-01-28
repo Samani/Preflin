@@ -130,6 +130,12 @@ public class PrefInternal implements PrefInterface {
     }
 
     @Override
+    public void clearSession() {
+        editor.clear();
+        editor.apply();
+    }
+
+    @Override
     public boolean putString(String key, String value) {
         return storeEntry(editor.putString(key, value));
     }

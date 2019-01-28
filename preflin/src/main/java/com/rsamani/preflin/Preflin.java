@@ -98,6 +98,12 @@ public class Preflin {
         return pref.deleteValue(key);
     }
 
+    public static void clearSession() {
+        ensureInit();
+        PrefInternal pref = prefHashMap.get(DEFAULT);
+        pref.clearSession();
+    }
+
     public static String getString(String key) {
         ensureInit();
         PrefInternal pref = prefHashMap.get(DEFAULT);

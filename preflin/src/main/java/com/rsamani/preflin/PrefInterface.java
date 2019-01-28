@@ -11,6 +11,8 @@ public interface PrefInterface {
 
     boolean deleteValue(String key);
 
+    void clearSession();
+
     boolean putString(String key, String value);
 
     String getString(String key);
