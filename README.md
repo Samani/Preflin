@@ -1,5 +1,5 @@
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
-
+[![](https://jitpack.io/v/samani/Preflin.svg)](https://jitpack.io/#samani/Preflin)
 # Preflin
 
 Preflin is a wrapper over the SharedPreference class in Android. It supports storing objects and list objects other than the standard primitives while decreasing the boiler plate code. It also enables listening for changes on specific keys on a SharedPreference with RxJava support.
@@ -30,9 +30,9 @@ allprojects {
 Add the dependency in your app build.gradle
 ```gradle
 dependencies {
-    implementation 'com.github.samani:Preflin:v1.1.0'
-    implementation 'com.github.samani:Preflin-gson:v1.1.0' // Serialize object with Gson
-    implementation 'com.github.samani:Preflin-jackson:v1.1.0'  // Serialize object with Jackson
+    implementation 'com.github.samani.Preflin:preflin:1.1.3'
+    implementation 'com.github.samani.Preflin:preflin-gson:1.1.3' // Serialize object with Gson
+    implementation 'com.github.samani.Preflin:preflin-jackson:1.1.3'  // Serialize object with Jackson
 }
 ```
 
