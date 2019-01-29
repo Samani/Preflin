@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.rsamani.preflin.serializer.Serializer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +18,7 @@ import io.reactivex.disposables.Disposables;
 /**
  * Created by Rasoul Samani on 1/24/2019.
  */
-public class PrefInternal implements PrefInterface {
+public class PreferenceFunction implements Function {
 
     private static final float DEFAULT_FLOAT = -1;
     private static final Integer DEFAULT_INT = -1;
@@ -30,7 +32,7 @@ public class PrefInternal implements PrefInterface {
     private Serializer serializer;
 
     @SuppressLint("CommitPrefEdits")
-    public PrefInternal(final SharedPreferences pref, Serializer serializer) {
+    public PreferenceFunction(final SharedPreferences pref, Serializer serializer) {
         this.pref = pref;
         editor = pref.edit();
         this.serializer = serializer;

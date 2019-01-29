@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Rasoul Samani on 1/24/2019.
  */
-public interface PrefInterface {
+public interface Function {
 
     boolean isKeyExists(String key);
 
