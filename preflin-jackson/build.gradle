@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
@@ -27,3 +28,15 @@ dependencies {
     // Jackson
     implementation "com.fasterxml.jackson.core:jackson-databind:${JACKSON_VERSION}"
 }
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.javaDirectories
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+group = 'com.github.samani.preflin'
+version = LIBRARY_VERSION
