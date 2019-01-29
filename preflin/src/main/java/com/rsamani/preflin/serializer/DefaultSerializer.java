@@ -1,4 +1,4 @@
-package com.rsamani.preflin;
+package com.rsamani.preflin.serializer;
 
 import android.util.Base64;
 

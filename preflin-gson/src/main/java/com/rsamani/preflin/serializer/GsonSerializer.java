@@ -1,7 +1,5 @@
 package com.rsamani.preflin.serializer;
 
-import com.rsamani.preflin.Serializer;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
