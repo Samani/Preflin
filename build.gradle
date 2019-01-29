@@ -42,5 +42,5 @@ ext {
 
     GSON_VERSION = "2.8.5"
 
-    LIBRARY_VERSION = "1.1.2"
+    LIBRARY_VERSION = "v1.1.3"
 }
